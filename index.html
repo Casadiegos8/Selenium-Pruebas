@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pruebas Selenium - Casos de Estudio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 id="main-title">Selenium Test Suite</h1>
+            <p class="subtitle">Página de práctica para automatización de pruebas</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <button class="nav-btn" onclick="showSection('caso1')">Caso 1: Login</button>
+            <button class="nav-btn" onclick="showSection('caso2')">Caso 2: Registro</button>
+            <button class="nav-btn" onclick="showSection('caso3')">Caso 3: Contacto</button>
+            <button class="nav-btn" onclick="showSection('caso4')">Caso 4: Tabla</button>
+            <button class="nav-btn" onclick="showSection('caso5')">Caso 5: Elementos Dinámicos</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- CASO 1: Formulario de Login -->
+        <section id="caso1" class="test-case active">
+            <div class="case-header">
+                <h2>Caso 1: Formulario de Login</h2>
+                <p class="case-description">Prueba validaciones de campos y autenticación</p>
+            </div>
+            
+            <div class="form-container">
+                <img src="/placeholder.svg?height=200&width=200" alt="Login Icon" class="form-image">
+                
+                <form id="login-form" class="form">
+                    <div class="form-group">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" name="email" placeholder="usuario@ejemplo.com" required>
+                        <span class="error-message" id="login-email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Contraseña:</label>
+                        <input type="password" id="login-password" name="password" placeholder="Mínimo 6 caracteres" required>
+                        <span class="error-message" id="login-password-error"></span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="remember-me" name="remember">
+                        <label for="remember-me">Recordarme</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="login-submit">Iniciar Sesión</button>
+                    <div class="success-message" id="login-success"></div>
+                </form>
+                
+                <div class="test-credentials">
+                    <p><strong>Credenciales de prueba:</strong></p>
+                    <p>Email: test@selenium.com</p>
+                    <p>Password: test123</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASO 2: Formulario de Registro -->
+        <section id="caso2" class="test-case">
+            <div class="case-header">
+                <h2>Caso 2: Formulario de Registro</h2>
+                <p class="case-description">Validación de múltiples campos y tipos de datos</p>
+            </div>
+            
+            <div class="form-container">
+                <img src="/placeholder.svg?height=200&width=200" alt="Register Icon" class="form-image">
+                
+                <form id="register-form" class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reg-firstname">Nombre:</label>
+                            <input type="text" id="reg-firstname" name="firstname" required>
+                            <span class="error-message" id="reg-firstname-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-lastname">Apellido:</label>
+                            <input type="text" id="reg-lastname" name="lastname" required>
+                            <span class="error-message" id="reg-lastname-error"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-email">Email:</label>
+                        <input type="email" id="reg-email" name="email" required>
+                        <span class="error-message" id="reg-email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-phone">Teléfono:</label>
+                        <input type="tel" id="reg-phone" name="phone" placeholder="+34 600 000 000">
+                        <span class="error-message" id="reg-phone-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-country">País:</label>
+                        <select id="reg-country" name="country" required>
+                            <option value="">Selecciona un país</option>
+                            <option value="es">España</option>
+                            <option value="mx">México</option>
+                            <option value="ar">Argentina</option>
+                            <option value="co">Colombia</option>
+                            <option value="cl">Chile</option>
+                        </select>
+                        <span class="error-message" id="reg-country-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-age">Edad:</label>
+                        <input type="number" id="reg-age" name="age" min="18" max="100">
+                        <span class="error-message" id="reg-age-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Género:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="gender-male" name="gender" value="male">
+                            <label for="gender-male">Masculino</label>
+                            
+                            <input type="radio" id="gender-female" name="gender" value="female">
+                            <label for="gender-female">Femenino</label>
+                            
+                            <input type="radio" id="gender-other" name="gender" value="other">
+                            <label for="gender-other">Otro</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">Acepto los términos y condiciones</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="register-submit">Registrarse</button>
+                    <div class="success-message" id="register-success"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CASO 3: Formulario de Contacto -->
+        <section id="caso3" class="test-case">
+            <div class="case-header">
+                <h2>Caso 3: Formulario de Contacto</h2>
+                <p class="case-description">Validación de textarea y campos de texto largo</p>
+            </div>
+            
+            <div class="form-container">
+                <img src="/placeholder.svg?height=200&width=200" alt="Contact Icon" class="form-image">
+                
+                <form id="contact-form" class="form">
+                    <div class="form-group">
+                        <label for="contact-name">Nombre Completo:</label>
+                        <input type="text" id="contact-name" name="name" required>
+                        <span class="error-message" id="contact-name-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email:</label>
+                        <input type="email" id="contact-email" name="email" required>
+                        <span class="error-message" id="contact-email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-subject">Asunto:</label>
+                        <select id="contact-subject" name="subject" required>
+                            <option value="">Selecciona un asunto</option>
+                            <option value="soporte">Soporte Técnico</option>
+                            <option value="ventas">Ventas</option>
+                            <option value="info">Información General</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <span class="error-message" id="contact-subject-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Mensaje:</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        <span class="error-message" id="contact-message-error"></span>
+                        <span class="char-count" id="char-count">0 / 500 caracteres</span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="contact-copy" name="copy">
+                        <label for="contact-copy">Enviarme una copia</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="contact-submit">Enviar Mensaje</button>
+                    <div class="success-message" id="contact-success"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- CASO 4: Tabla Interactiva -->
+        <section id="caso4" class="test-case">
+            <div class="case-header">
+                <h2>Caso 4: Tabla Interactiva con Búsqueda</h2>
+                <p class="case-description">Prueba de búsqueda, ordenamiento y selección de filas</p>
+            </div>
+            
+            <div class="table-container">
+                <div class="table-controls">
+                    <input type="text" id="search-input" placeholder="Buscar en la tabla..." class="search-input">
+                    <button class="btn btn-secondary" id="add-row-btn">Agregar Fila</button>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table id="data-table" class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th onclick="sortTable(1)">ID <span class="sort-icon">↕</span></th>
+                                <th onclick="sortTable(2)">Nombre <span class="sort-icon">↕</span></th>
+                                <th onclick="sortTable(3)">Email <span class="sort-icon">↕</span></th>
+                                <th onclick="sortTable(4)">Estado <span class="sort-icon">↕</span></th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>1</td>
+                                <td>Juan Pérez</td>
+                                <td>juan@ejemplo.com</td>
+                                <td><span class="badge badge-active">Activo</span></td>
+                                <td>
+                                    <button class="btn-icon edit-btn" title="Editar">✏️</button>
+                                    <button class="btn-icon delete-btn" title="Eliminar">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>2</td>
+                                <td>María García</td>
+                                <td>maria@ejemplo.com</td>
+                                <td><span class="badge badge-inactive">Inactivo</span></td>
+                                <td>
+                                    <button class="btn-icon edit-btn" title="Editar">✏️</button>
+                                    <button class="btn-icon delete-btn" title="Eliminar">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>3</td>
+                                <td>Carlos López</td>
+                                <td>carlos@ejemplo.com</td>
+                                <td><span class="badge badge-active">Activo</span></td>
+                                <td>
+                                    <button class="btn-icon edit-btn" title="Editar">✏️</button>
+                                    <button class="btn-icon delete-btn" title="Eliminar">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>4</td>
+                                <td>Ana Martínez</td>
+                                <td>ana@ejemplo.com</td>
+                                <td><span class="badge badge-pending">Pendiente</span></td>
+                                <td>
+                                    <button class="btn-icon edit-btn" title="Editar">✏️</button>
+                                    <button class="btn-icon delete-btn" title="Eliminar">🗑️</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="row-checkbox"></td>
+                                <td>5</td>
+                                <td>Luis Rodríguez</td>
+                                <td>luis@ejemplo.com</td>
+                                <td><span class="badge badge-active">Activo</span></td>
+                                <td>
+                                    <button class="btn-icon edit-btn" title="Editar">✏️</button>
+                                    <button class="btn-icon delete-btn" title="Eliminar">🗑️</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-info">
+                    <span id="selected-count">0 filas seleccionadas</span>
+                    <button class="btn btn-danger" id="delete-selected-btn">Eliminar Seleccionadas</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASO 5: Elementos Dinámicos -->
+        <section id="caso5" class="test-case">
+            <div class="case-header">
+                <h2>Caso 5: Elementos Dinámicos e Interactivos</h2>
+                <p class="case-description">Prueba de alerts, modales, drag & drop y elementos que aparecen/desaparecen</p>
+            </div>
+            
+            <div class="dynamic-container">
+                <div class="dynamic-section">
+                    <h3>Alertas y Notificaciones</h3>
+                    <div class="button-group">
+                        <button class="btn btn-success" id="alert-success">Alerta Éxito</button>
+                        <button class="btn btn-warning" id="alert-warning">Alerta Advertencia</button>
+                        <button class="btn btn-danger" id="alert-error">Alerta Error</button>
+                        <button class="btn btn-info" id="alert-info">Alerta Info</button>
+                    </div>
+                    <div id="alert-container"></div>
+                </div>
+                
+                <div class="dynamic-section">
+                    <h3>Modal Dialog</h3>
+                    <button class="btn btn-primary" id="open-modal">Abrir Modal</button>
+                    <img src="/placeholder.svg?height=150&width=150" alt="Modal Icon" class="section-image">
+                </div>
+                
+                <div class="dynamic-section">
+                    <h3>Elementos que Aparecen/Desaparecen</h3>
+                    <button class="btn btn-secondary" id="toggle-element">Toggle Elemento</button>
+                    <div id="toggle-box" class="toggle-box">
+                        <p>Este elemento puede aparecer y desaparecer</p>
+                        <p id="toggle-text">Visible</p>
+                    </div>
+                </div>
+                
+                <div class="dynamic-section">
+                    <h3>Carga Dinámica</h3>
+                    <button class="btn btn-primary" id="load-content">Cargar Contenido</button>
+                    <div id="loading-spinner" class="spinner hidden"></div>
+                    <div id="dynamic-content" class="dynamic-content"></div>
+                </div>
+                
+                <div class="dynamic-section">
+                    <h3>Dropdown Hover</h3>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn">
+                            Menú Desplegable
+                        </button>
+                        <div class="dropdown-menu" id="dropdown-menu">
+                            <a href="#" class="dropdown-item">Opción 1</a>
+                            <a href="#" class="dropdown-item">Opción 2</a>
+                            <a href="#" class="dropdown-item">Opción 3</a>
+                            <a href="#" class="dropdown-item">Opción 4</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dynamic-section">
+                    <h3>Contador</h3>
+                    <div class="counter-container">
+                        <button class="btn btn-secondary" id="decrement">-</button>
+                        <span id="counter" class="counter">0</span>
+                        <button class="btn btn-secondary" id="increment">+</button>
+                        <button class="btn btn-danger" id="reset">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <h2>Modal de Prueba</h2>
+            <p>Este es un modal para probar con Selenium</p>
+            <form id="modal-form">
+                <div class="form-group">
+                    <label for="modal-input">Ingresa algo:</label>
+                    <input type="text" id="modal-input" placeholder="Texto de prueba">
+                </div>
+                <button type="submit" class="btn btn-primary">Aceptar</button>
+                <button type="button" class="btn btn-secondary" id="modal-cancel">Cancelar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Selenium Test Suite - Página de práctica para automatización</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
