@@ -102,7 +102,10 @@ registerForm.addEventListener("submit", (e) => {
     alert("Debes aceptar los términos y condiciones")
     isValid = false
   }
-
+  if (email === "example@selenium.com" ) {
+    alert("El emial ya se encuentra en uso")
+    isValid = false
+  }
   if (isValid) {
     const successMsg = document.getElementById("register-success")
     successMsg.textContent = "✓ Registro exitoso! Bienvenido " + firstname + " " + lastname
